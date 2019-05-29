@@ -49,7 +49,7 @@ class Attendance extends CI_Controller
 
 
             if ($r->time_in <= 07.30) {
-                $status = '<label><span class="badge badge-success">on time</span></label>';
+                $status = '<label><h6><span class="badge badge-success">on time</span>/h6></label>';
             } else {
                 $status = '<label><h6><span class="badge badge-info">terlambat</span></h6></label>';
             }
@@ -61,7 +61,7 @@ class Attendance extends CI_Controller
             $row[] = $no;
             $row[] = $r->dates;
             $row[] = $r->nik;
-            $row[] = $r->time_in . "" . $status;
+            $row[] = $r->time_in . $status;
             $row[] = $r->time_out;
 
 

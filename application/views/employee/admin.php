@@ -101,6 +101,8 @@
 
     });
 
+
+
     function add_data() {
         save_method = 'add';
         $('#form')[0].reset(); // reset form on modals
@@ -108,6 +110,9 @@
         $('.help-block').empty(); // clear error string
         $('#modal_form').modal('show'); // show bootstrap modal
         $('.modal-title').text('Add Data'); // Set Title to Bootstrap modal title
+        $('#time_in').val('<?= date("h:i:s"); ?>'); // Set Title to Bootstrap modal title
+
+
         kd_otomatis();
 
     }
@@ -292,7 +297,7 @@
 
                         <div class="form-group">
                             <label for="time_out">time_out</label>
-                            <input type="text" class="form-control timepicker" id="time_out" name="time_out" required>
+                            <input type="text" class="form-control" id="time_out" name="time_out" required>
                         </div>
 
 
