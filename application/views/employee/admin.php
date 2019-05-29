@@ -21,7 +21,7 @@
                 <div class="card-header py-2">
 
                     <button class="btn btn-primary btn-sm" onclick="add_data()"><i class="fas fa-plus"></i> Add</button>
-                    <button class="btn btn-success btn-sm" onclick="reload_table()"><i class="fas fa-sync"></i></button>
+
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -29,8 +29,10 @@
                             <thead>
                                 <tr>
                                     <th scope=" col">No</th>
-                                    <th scope="col">Kode</th>
-                                    <th scope="col">Buyer</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Nik</th>
+                                    <th scope="col">TIme in</th>
+                                    <th scope="col">Time out</th>
                                     <th scope="col">Action</th>
 
                                 </tr>
@@ -64,7 +66,7 @@
 
         table = $('#table').DataTable({
             "ajax": {
-                url: '<?php echo site_url('buyer/product_data') ?>',
+                url: '<?php echo site_url('attendance/product_data') ?>',
                 type: 'POST'
             },
 

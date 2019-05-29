@@ -40,28 +40,34 @@ class Attendance extends CI_Controller
         $length = intval($this->input->get("length"));
 
         $this->db->order_by('id', 'DESC');
-        $query = $this->db->get('employee');
+        $query = $this->db->get('attendance');
 
         $data = [];
         $no = 0;
 
         foreach ($query->result() as $r) {
+
+
+            if ($r->time_in <= 07.30) {
+                $status = '<h6><span class="badge badge-success">on time</span></h6>';
+            } else {
+                $status = '<h6><span class="badge badge-info">terlambat</span></h6>';
+            }
+
             $no++;
             $row = array();
+
+
             $row[] = $no;
+            $row[] = $r->dates;
             $row[] = $r->nik;
-            $row[] = $r->ktp;
-            $row[] = $r->nama;
-            $row[] = $r->department;
-            $row[] = $r->bagian;
-            $row[] = $r->jabatan;
-            $row[] = $r->jenis_kelamin;
-            $row[] = $r->tempat_lahir;
-            $row[] = $r->tgl_lahir;
+            $row[] = $r->time_in . $status;
+            $row[] = $r->time_out;
+
 
 
             //add html for action
-            $row[] = '<a class="badge badge-info" href="javascript:void(0)" title="Detail" onclick="detail_data(' . "'" . $r->id . "'" . ')"><i class="fas fa-info"></i> Detail</a>
+            $row[] = '
             <a class="badge badge-primary" href="javascript:void(0)" title="Edit" onclick="edit(' . "'" . $r->id . "'" . ')"><i class="fas fa-edit"></i> Edit</a>
             <a class="badge badge-danger" href="javascript:void(0)" title="Hapus" onclick="delete_data(' . "'" . $r->id . "'" . ')"><i class="fas fa-trash"></i> Delete</a>';
 
@@ -89,7 +95,6 @@ class Attendance extends CI_Controller
     public function save()
 
     {
-
 
 
         $status = $this->input->post('status');
@@ -216,7 +221,7 @@ class Attendance extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('employee/attendance');
+        $this->load->view('employee/admin');
         $this->load->view('templates/footer');
     }
 
