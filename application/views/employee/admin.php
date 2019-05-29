@@ -28,7 +28,7 @@
                         <table id="table" class="table table-hover table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope=" col">No</th>
+                                    <th scope="col" width="1%">No</th>
                                     <th scope="col">Date</th>
                                     <th scope="col">Nik</th>
                                     <th scope="col">TIme in</th>
@@ -276,13 +276,23 @@
 
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="kode">Kode</label>
-                            <input type="text" class="form-control" id="kode" name="kode" readonly>
+                            <label for="nik">nik</label>
+                            <input type="text" class="form-control" id="nik" name="nik">
                         </div>
 
                         <div class="form-group">
-                            <label for="buyer">Buyer</label>
-                            <input type="text" class="form-control" id="buyer" name="buyer" required>
+                            <label for="date">date</label>
+                            <input type="text" class="form-control" id="date" name="date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="time_in">time_in</label>
+                            <input type="text" class="form-control" id="time_in" name="time_in" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="time_out">time_out</label>
+                            <input type="text" class="form-control timepicker" id="time_out" name="time_out" required>
                         </div>
 
 
